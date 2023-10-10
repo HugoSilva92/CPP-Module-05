@@ -2,10 +2,9 @@
 
 #include <iostream>
 #include <exception>
+#include "AForm.hpp"
+class Form;
 
-// to creat personalized exceptions: https://rollbar.com/blog/cpp-custom-exceptions/#
-// about the try throw and catch: https://cplusplus.com/doc/tutorial/exceptions/
-// about the *what: https://en.cppreference.com/w/cpp/error/exception/what
 class Bureaucrat{
 	private:
 		std::string const	_name;
@@ -17,10 +16,14 @@ class Bureaucrat{
 		Bureaucrat(std::string const name, int grade);
 		Bureaucrat(Bureaucrat const &obj);
 		Bureaucrat &operator=(Bureaucrat const &obj);
+
 		std::string	getName(void) const;
 		int			getGrade(void) const;
+
 		void		incrementGrade(void);
 		void		decrementGrade(void);
+		void		signForm(AForm &form);
+		void		executeForm(AForm const &form);
 		class GradeTooHighException : public std::exception{
 			public:
 				virtual const char *what() const throw();

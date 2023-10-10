@@ -2,10 +2,9 @@
 
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
+class Form;
 
-// to creat personalized exceptions: https://rollbar.com/blog/cpp-custom-exceptions/#
-// about the try throw and catch: https://cplusplus.com/doc/tutorial/exceptions/
-// about the *what: https://en.cppreference.com/w/cpp/error/exception/what
 class Bureaucrat{
 	private:
 		std::string const	_name;
@@ -21,6 +20,7 @@ class Bureaucrat{
 		int			getGrade(void) const;
 		void		incrementGrade(void);
 		void		decrementGrade(void);
+		void		signForm(Form &form);
 		class GradeTooHighException : public std::exception{
 			public:
 				virtual const char *what() const throw();
