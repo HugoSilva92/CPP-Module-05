@@ -28,9 +28,10 @@ std::string		ShrubberyCreationForm::getTarget(void) const {
 }
 
 void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
+	(void)executor;
 	std::fstream file;
 
-	file.open(this->_target + "_shrubbery", std::fstream::out);
+	file.open((this->_target + "_shrubbery").c_str());
 	file << "my-app/" << std::endl;
 	file << "|─ node_modules/" << std::endl;
 	file << "├─ public/" << std::endl;

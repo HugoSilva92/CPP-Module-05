@@ -2,6 +2,7 @@
 
 #include "AForm.hpp"
 #include <fstream>
+#include <cstdlib>
 
 //class AForm;
 
@@ -17,13 +18,4 @@ class RobotomyRequestForm : public AForm {
 
 		void	execute(Bureaucrat const &executor) const;
 		std::string		getTarget(void) const;
-
-		class GradeTooHighException : public std::exception{
-			public:
-				virtual const char *what() const throw();
-		};
-		class GradeTooLowException : public std::exception{
-			public:
-				virtual const char *what() const throw();
-		};
 };

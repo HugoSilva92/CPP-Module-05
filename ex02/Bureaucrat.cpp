@@ -69,7 +69,10 @@ void		Bureaucrat::signForm(AForm &form){
 }
 
 void		Bureaucrat::executeForm(AForm const &form){
-	if (this->_grade > form.getReqGrade())
+	if (this->getGrade() > form.getExecGrade())
 		throw GradeTooLowException();
-	form.execute(*this);
+	else if (!form.getSigned())
+		throw AForm::notSigned();
+	else
+		form.execute(*this);
 }

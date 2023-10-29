@@ -28,8 +28,9 @@ std::string		RobotomyRequestForm::getTarget(void) const {
 }
 
 void	RobotomyRequestForm::execute(Bureaucrat const &executor) const {
+	(void)executor;
 	std::cout << "DRILLING NOISES" << std::endl;
-	if (rand() % 2 == 0)
+	if (std::rand() % 2 == 0)
 		std::cout << this->_target << " has been robotomized successfully" << std::endl;
 	else
 		std::cout << this->_target << " has failed to be robotomized" << std::endl;

@@ -21,7 +21,7 @@ class AForm{
 		void			beSigned(Bureaucrat const &sign);
 
 		std::string		getName(void) const;
-		bool			getSigned(void);
+		bool			getSigned(void) const;
 		int				getReqGrade(void) const;
 		int				getExecGrade(void) const;
 
@@ -30,6 +30,10 @@ class AForm{
 				virtual const char *what() const throw();
 		};
 		class GradeTooLowException : public std::exception{
+			public:
+				virtual const char *what() const throw();
+		};
+		class notSigned : public std::exception{
 			public:
 				virtual const char *what() const throw();
 		};

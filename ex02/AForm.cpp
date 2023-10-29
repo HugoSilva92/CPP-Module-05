@@ -33,7 +33,7 @@ std::string	AForm::getName(void) const {
 	return this->_name;
 }
 
-bool		AForm::getSigned(void){
+bool		AForm::getSigned(void) const {
 	return this->_signed;
 }
 
@@ -51,6 +51,10 @@ const char	*AForm::GradeTooHighException::what() const throw(){
 
 const char	*AForm::GradeTooLowException::what() const throw(){
 	return ("Grade too Low to sign\n");
+}
+
+const char	*AForm::notSigned::what() const throw(){
+	return ("Form isn't signed\n");
 }
 
 std::ostream	&operator<<(std::ostream &out, AForm &obj){
