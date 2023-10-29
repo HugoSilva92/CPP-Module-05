@@ -27,11 +27,16 @@ std::string		ShrubberyCreationForm::getTarget(void) const {
 	return this->_target;
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
-	(void)executor;
-	std::fstream file;
+void	ShrubberyCreationForm::typeExecute() const {
+	std::ofstream file;
+	std::string name = this->_target + "_shrubbery";
 
-	file.open((this->_target + "_shrubbery").c_str());
+	file.open(name.c_str());
+	if (!file.is_open())
+	{
+		std::cout << "Something went wrong creating the file" << std::endl;
+		return;
+	}
 	file << "my-app/" << std::endl;
 	file << "|─ node_modules/" << std::endl;
 	file << "├─ public/" << std::endl;

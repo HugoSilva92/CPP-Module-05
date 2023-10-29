@@ -57,6 +57,14 @@ const char	*AForm::notSigned::what() const throw(){
 	return ("Form isn't signed\n");
 }
 
+void	AForm::execute(Bureaucrat const& executor) const {
+	if (this->getReqGrade() < executor.getGrade())
+		throw GradeTooLowException();
+	else if (!this->getSigned())
+		throw AForm::notSigned();
+	this->typeExecute();
+}
+
 std::ostream	&operator<<(std::ostream &out, AForm &obj){
 	out << "AForm name: " << obj.getName() << std::endl;
 	out << "Is signed: " << obj.getSigned() << std::endl;

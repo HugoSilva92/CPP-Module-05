@@ -17,7 +17,8 @@ class AForm{
 		AForm(AForm const &obj);
 		AForm &operator=(AForm const &obj);
 
-		virtual void	execute(Bureaucrat const &executor) const = 0;
+		void			execute(Bureaucrat const &executor) const;
+		virtual void	typeExecute(void) const = 0;
 		void			beSigned(Bureaucrat const &sign);
 
 		std::string		getName(void) const;

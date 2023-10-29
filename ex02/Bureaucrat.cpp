@@ -61,6 +61,7 @@ const char	*Bureaucrat::GradeTooLowException::what() const throw(){
 }
 
 void		Bureaucrat::signForm(AForm &form){
+	//std::cout << this->_grade << " " << form.getReqGrade() << std::endl;
 	if (this->_grade <= form.getReqGrade())
 		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	else
@@ -69,10 +70,5 @@ void		Bureaucrat::signForm(AForm &form){
 }
 
 void		Bureaucrat::executeForm(AForm const &form){
-	if (this->getGrade() > form.getExecGrade())
-		throw GradeTooLowException();
-	else if (!form.getSigned())
-		throw AForm::notSigned();
-	else
 		form.execute(*this);
 }

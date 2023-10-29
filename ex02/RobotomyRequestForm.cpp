@@ -27,8 +27,7 @@ std::string		RobotomyRequestForm::getTarget(void) const {
 	return this->_target;
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const &executor) const {
-	(void)executor;
+void	RobotomyRequestForm::typeExecute() const {
 	std::cout << "DRILLING NOISES" << std::endl;
 	if (std::rand() % 2 == 0)
 		std::cout << this->_target << " has been robotomized successfully" << std::endl;
